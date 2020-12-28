@@ -1,0 +1,37 @@
+Número	Etiqueta	Descripción
+1.	CC	Conjunción de coordinación
+2.	CD	número cardinal
+3.	DT	Determinante
+4.	EX	Existencial allí
+5.	FW	Palabra extranjera
+6.	EN	Preposición o conjunción subordinante
+7.	JJ	Adjetivo
+8.	JJR	Adjetivo, comparativo
+9.	JJS	Adjetivo, superlativo
+10.	LS	Marcador de elemento de lista
+11.	MD	Modal
+12.	NN	Sustantivo, singular o masa
+13.	NNS	Sustantivo, plural
+14.	NNP	Nombre propio, singular
+15.	NNPS	Sustantivo propio, plural
+16.	PDT	Predeterminador
+17.	POS	Final posesivo
+18.	PRP	Pronombre personal
+19.	PRP$	Pronombre posesivo
+20.	RB	Adverbio
+21.	RBR	Adverbio, comparativo
+22.	RBS	Adverbio, superlativo
+23.	RP	Partícula
+24.	SYM	Símbolo
+25.	TO	a
+26.	UH	Interjección
+27.	VB	Verbo, forma base
+28.	VBD	Verbo, pasado
+29.	VBG	Verbo, gerundio o participio presente
+30.	VBN	Verbo, participio pasado
+31.	VBP	Verbo, presente que no es de tercera persona del singular
+32.	VBZ	Verbo, presente en tercera persona del singular
+33.	WDT	Determinante de Wh
+34.	WP	Pronombre Wh
+35.	WP$	Pronombre-wh posesivo
+36.	WRB	Wh-adverbio

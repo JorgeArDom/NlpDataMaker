@@ -1,0 +1,27 @@
+(TOP (S (ADVP-TMP (NP (DT A) (JJ few) (NNS hours) )(RB later) )(, ,) (NP-SBJ (DT the) (NN stock) (NN market) )(VP (VBD dropped) (NP-EXT (CD 190) (NNS points) ))(. .) ))
+
+a	DT	NP	ADVP-TMP	S	TOP
+few	JJ	NP	ADVP-TMP	S	TOP
+hours	NNS	NP	ADVP-TMP	S	TOP
+later	RB		ADVP-TMP	S	TOP
+,	,				S	TOP
+the	DT	NP-SBJ			S	TOP
+stock	NN	NP-SBJ			S	TOP
+market	NN	NP-SBJ			S	TOP
+dropped	VBD	VP			S	TOP
+190	CD	VP			S	TOP
+points	NNS	VP			S	TOP
+.	.				S	TOP
+
+
+Hola buenas tardes, tenés stock talle 43?
+
+Hola	UH		NP	S	TOP
+buenas	JJC	NP	NP	S	TOP
+tardes	NNC	NP	NP	S	TOP
+,	,			S	TOP
+tenés	VPS		VP	S	TOP
+stock	NNV	NP	VP	S	TOP
+talle	NNC	NP	VP	S	TOP
+43	DC	NP	VP	S	TOP
+?	?		VP	S	TOP

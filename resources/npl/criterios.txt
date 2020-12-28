@@ -1,0 +1,174 @@
+Oracion / frase / párrafo
+
+Sentence Detection --> obtener sentences y luego tokenizar
+
+Tokenizer
+---------
+Los Tokenizers de OpenNLP segmentan una secuencia de caracteres de entrada en tokens. Los tokens suelen ser palabras, puntuación, números, etc. Este método devuelve TOKENS
+
+ej1: 
+Pierre Vinken, 61 years old, will join the board as a nonexecutive director Nov. 29.
+resultado:
+Pierre Vinken , 61 years old , will join the board as a nonexecutive director Nov. 29 .
+
+ej2:
+Mr. Vinken is chairman of Elsevier N.V., the Dutch publishing group.
+resultado:
+Mr. Vinken is chairman of Elsevier N.V. , the Dutch publishing group .
+
+NER 
+--------------
+Name Entity Recognition encuentra nombres de personas, lugares y otros, con una probabilidad de certeza
+
+<START: place> ... <END>
+<START: person> ...
+<START: street> ... 
+<START: neighboord> ...
+(hay que revisar el archivo.train que armé, no anda, parece que son pocos datos...)
+la salida de NER puede ser una lista del tipo String, pero me parece que sería mejor un objeto del tipo EntidadNer (type, ner). Hay que darle una vuelta de rosca mas... pero anda.
+
+DOCUMENT CATEGORIZED
+---------------------
+me categoriza dentro de un conjunto de categorias predefinidas (dispo, ver, cons, ret, etc) y el grado de aproximación de cada categoría. Funciona bastante bien
+
+POS TAGGER
+----------
+Se ingresa con un vector de sentences tokenizadas (en mi app: sentTokenized[];). Cada vector es una sentence completa.
+
+entrada:
+Pierre Vinken , 61 years old , will join the board as a nonexecutive director Nov. 29 .
+Mr. Vinken is chairman of Elsevier N.V. , the Dutch publishing group .
+
+salida:
+Pierre_NNP Vinken_NNP ,_, 61_CD years_NNS old_JJ ,_, will_MD join_VB the_DT board_NN as_IN a_DT nonexecutive_JJ director_NN Nov._NNP 29_CD ._.
+Mr._NNP Vinken_NNP is_VBZ chairman_NN of_IN Elsevier_NNP N.V._NNP ,_, the_DT Dutch_NNP publishing_VBG group_NN
+
+Según el archivo se_pos_maxent.bin:
+Hola_PO Juan_PO !_IU Tenés_VV camisa_VV blanca_AB talle_NN S_PN para_ID retirar_VV mañana_PO por_NN Villa_PO Urquiza_NN ?_I? Gracias_NN !_IU
+
+Según el archivo pos-custom.bin (el que preparo yo):
+Hola_SLD-H Juan_VERB !_SGN Tenés_VERB camisa_SUST blanca_VAR-COLOR-VAL talle_SUST S_VAR-TALLE-VAL para_PREP retirar_VERB mañana_SUST por_PREP Villa_ATRG-ADDRESS-VAL Urquiza_ATRG-ADDRESS-VAL ?_SGN Gracias_GRA-G !_SGN
+
+
+LEMMATIZER
+---------
+The lemmatizer returns, for a given word form (token) and Part of Speech tag, the dictionary form of a word, which is usually referred to as its lemma
+
+(no encontré una base de lemmas en español...). Igual habría que ver como hace con las palabras mal escritas...
+
+(probar de descargar el proyecto de Standford NLP y ver si puedo importar funciones...)
+
+CHUNKER
+------
+Text chunking consists of dividing a text in syntactically correlated parts of words, like noun groups, verb groups, but does not specify their internal structure, nor their role in the main sentence.
+La fragmentación de texto consiste en dividir un texto en "PARTES DE PALABRAS CORRELACIONADAS SINTACTICAMENTE", como grupos de nombres, grupos de verbos, pero no especifica su estructura interna ni su función en la oración principal.
+
+He        PRP  B-NP (NOUN PHRASE)
+reckons   VBZ  B-VP (VERBAL FRASE)
+the       DT   B-NP
+current   JJ   I-NP
+account   NN   I-NP
+deficit   NN   I-NP
+will      MD   B-VP
+narrow    VB   I-VP
+to        TO   B-PP (PROPOSITIONAL PHRASE)
+only      RB   B-NP
+#         #    I-NP
+1.8       CD   I-NP
+billion   CD   I-NP
+in        IN   B-PP
+September NNP  B-NP
+.         .    O
+
+//acá hay que ver la estructura de los SINTAGMAS antes de ponerse a chunkear. También hay que determinar que tipo de chunks se necesitan y no confundirlos con la CATEGORIZACIÓN DE DOCUMENTOS!!.
+
+
+PARSER
+-------
+Un analizador devuelve un árbol de análisis sintáctico de una oración de acuerdo con una gramática de estructura de frase. Un árbol de análisis especifica la estructura interna de una oración. --> es la que relaciona los diferentes chunkers?
+
+the	DT	B-NP				S
+cellphone NN	I-NP				S
+was	VBD	B-VP			VP	S
+broken	VBN	I-VF		VP	VP	S
+in	IN	B-VP	PP	VP	VP	S
+two	CD	B-NP	PP	VP	VP	S
+days	NNS	I-NP	PP	VP	VP	S
+
+(TOP (S (NP (DT The) (NN cellphone)) (VP (VBD was) (VP (VBN broken) (PP (IN in) (NP (CD two) (NNS days))))) (. .)))
+
+
+ESTRUCTURAS SINTACTICAS (SINTAGMAS)
+-----------------------------------
+Cada estructura que armo significa algo (podría ser una tabla de conocimiento) y el conjunto de estructuras podría ser otro significado 
+Si tengo una estructura de árbol podría pensar en un árbol de decisión
+
+
+Sintagma nominal --> Noun Phrase?
+---------------------------------
+Estructura: Determinante + nucleo + complemento del nucleo
+
+Determinante: determinantes, articulos
+nucleo: sustantivos, nombres propios, pronombres
+complemento: podría ser otro sintagma
+
+Hola buenas tardes, tenés stock talle 43?
+
+Hola	UH		GP	S	TOP
+buenas	JJC	NP	GP	S	TOP
+tardes	NNC	NP	GP	S	TOP
+,	,			S	TOP
+tenés	VPS		VP	S	TOP
+stock	NNC		VP	S	TOP
+talle	NNC	NP	VP	S	TOP
+43	DC	NP	VP	S	TOP
+en	EN		VP	S	TOP
+color	NNC	NP	VP	S	TOP
+rojo	JJC	NP	VP	S	TOP
+?	?			S	TOP
+,	,			S	TOP
+Es	VPS		VP	S	TOP
+de	EN		VP	S	TOP
+cuero	NNC	NP	VP	S	TOP
+y	CCC			S	TOP
+tiene	VPS		VP	S	TOP
+cierre	NNC	NP	VP	S	TOP
+de	EN	NP	VP	S	TOP
+metal	NNC	NP	VP	S	TOP
+?	?			S	TOP
+gracias	UH	TP	TP	S	TOP
+!	!			S	TOP
+.	.			S	TOP
+
+S: Sentence, podría ser el doccat...
+
+NP=RBM+NCC (frase nominal = adverbio de modo + sustantivo común) 
+NP=NNV+NNC+CD (frase nominal = sustantivo común + sustantivo común + número cardinal)
+
+.- la sentencia S tiene un doccat DISPO (sabe que tiene que responder a una consulta de disponibilidad de producto. (no sabe que caracteristicas del producto o variaciones o cantidades les están preguntando)
+
+.- la sentencia tiene 5 Parsers
+	.- tiene un parser GP, sabe que tiene que responder a un saludo al Inicio (no sabe bien que responder).
+		.- el parser GP tiene un parser NP (los NP corresponden a sustantivos)
+			.- el parser NP tiene dos PosTags.
+				.-como es un NP, se buscará la correlación de los dos PosTags con información en producto, datos extra o respuestas anteriores aprendidas. 
+				.-Si no encuentra información, se informa que no hubo correlación y se responde el GP por default.
+		.- el parser GP tiene un PosTag UH (interjección)
+
+		
+tiene tres parsers VP, sabe que tiene una acción que realizar (no sabe cual acción)
+----------------------------------------------------------------------------------
+	.- el parser VP1 tiene un PosTag VPS y dos NP
+		.- el PosTag VPS se tiene que buscar en una BD de verbos para conocer la intención. Si no se conoce el verbo, se responde por default de la doccat de la Sentence. O se responde otra cosa...
+		.-como es un NP, se buscará la correlación de los dos PosTags con información en producto, datos extra o respuestas anteriores aprendidas. 
+	.- el parser VP1 tiene una intención y datos del producto correlacionados. La respuesta será una afirmación de la pregunta (tenemos stock en talle 43 y color rojo). Si hay en stock una variante, se responde por la variante.
+	...
+	...
+	...
+	.- el parser VP2 no tiene correlaciones con el producto, la respuesta será una negación de la pregunta (no tiene o no sabe). (no se si... tengo que averiguarlo)
+
+	.- tiene un parser TP, sabe que tiene que responder a un agradecimiento.
+
+.- en todos los casos, se recibe la pregunta, se busca información, se responde apropiadamente (tiene / no tiene) (hay / no hay). Y el estilo de respuestas será obtenido de la misma estructura del parser (se responde parser a parser, en orden de llegada).
+
+

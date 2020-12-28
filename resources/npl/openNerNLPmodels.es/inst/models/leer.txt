@@ -1,0 +1,1 @@
+ahora estoy utilizando los modelos person y location en la app

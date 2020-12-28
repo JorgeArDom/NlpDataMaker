@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><dictionary>
+  <entry tags="NNP">
+    <token>Mary</token>
+  </entry>
+  <entry tags="VBD">
+    <token>had</token>
+  </entry>
+  <entry tags="DT">
+    <token>a</token>
+  </entry>
+  <entry tags="JJ">
+    <token>little</token>
+  </entry>
+  <entry tags="NN JJ">
+    <token>lamb</token>
+  </entry>
+  <entry tags="PRP$">
+    <token>His</token>
+  </entry>
+  <entry tags="NN">
+    <token>fleece</token>
+  </entry>
+  <entry tags="VBD">
+    <token>was</token>
+  </entry>
+  <entry tags="JJ">
+    <token>white</token>
+  </entry>
+  <entry tags="IN">
+    <token>as</token>
+  </entry>
+  <entry tags="NN">
+    <token>snow</token>
+  </entry>
+  <entry tags="CC">
+    <token>And</token>
+  </entry>
+  <entry tags="RB">
+    <token>everywhere</token>
+  </entry>
+  <entry tags="IN">
+    <token>that</token>
+  </entry>
+  <entry tags="VBD">
+    <token>went</token>
+  </entry>
+  <entry tags="DT">
+    <token>The</token>
+  </entry>
+  <entry tags="JJ">
+    <token>sure</token>
+  </entry>
+  <entry tags="TO">
+    <token>to</token>
+  </entry>
+  <entry tags="VB">
+    <token>go</token>
+  </entry>
+  <entry tags="PRP">
+    <token>He</token>
+  </entry>
+  <entry tags="VBD">
+    <token>followed</token>
+  </entry>
+  <entry tags="PRP$">
+    <token>her</token>
+  </entry>
+  <entry tags="NN">
+    <token>school</token>
+  </entry>
+  <entry tags="CD">
+    <token>one</token>
+  </entry>
+  <entry tags="NN">
+    <token>day</token>
+  </entry>
+  <entry tags="WDT">
+    <token>Which</token>
+  </entry>
+  <entry tags="IN">
+    <token>against</token>
+  </entry>
+  <entry tags="DT">
+    <token>the</token>
+  </entry>
+  <entry tags="NN">
+    <token>rule</token>
+  </entry>
+  <entry tags="PRP">
+    <token>It</token>
+  </entry>
+  <entry tags="VBD">
+    <token>made</token>
+  </entry>
+  <entry tags="NNS">
+    <token>children</token>
+  </entry>
+  <entry tags="NN">
+    <token>laugh</token>
+  </entry>
+  <entry tags="CC">
+    <token>and</token>
+  </entry>
+  <entry tags="VB">
+    <token>play</token>
+  </entry>
+  <entry tags="TO">
+    <token>To</token>
+  </entry>
+  <entry tags="VB">
+    <token>see</token>
+  </entry>
+  <entry tags="IN">
+    <token>at</token>
+  </entry>
+  <entry tags="IN RB">
+    <token>so</token>
+  </entry>
+  <entry tags="NN">
+    <token>teacher</token>
+  </entry>
+  <entry tags="VBD">
+    <token>turned</token>
+  </entry>
+  <entry tags="PRP">
+    <token>it</token>
+  </entry>
+  <entry tags="RP">
+    <token>out</token>
+  </entry>
+  <entry tags="CC">
+    <token>But</token>
+  </entry>
+  <entry tags="RB">
+    <token>still</token>
+  </entry>
+  <entry tags="VBD">
+    <token>lingered</token>
+  </entry>
+  <entry tags="IN">
+    <token>near</token>
+  </entry>
+  <entry tags="VBD">
+    <token>waited</token>
+  </entry>
+  <entry tags="RB">
+    <token>patiently</token>
+  </entry>
+  <entry tags="IN">
+    <token>about</token>
+  </entry>
+  <entry tags="NNP">
+    <token>Till</token>
+  </entry>
+  <entry tags="VBD">
+    <token>did</token>
+  </entry>
+  <entry tags="VB">
+    <token>appear</token>
+  </entry>
+  <entry tags="WRB">
+    <token>Why</token>
+  </entry>
+  <entry tags="VBZ">
+    <token>does</token>
+  </entry>
+  <entry tags="NN">
+    <token>love</token>
+  </entry>
+  <entry tags="JJ">
+    <token>eager</token>
+  </entry>
+  <entry tags="NN">
+    <token>cry</token>
+  </entry>
+  <entry tags="VBZ">
+    <token>loves</token>
+  </entry>
+  <entry tags="PRP">
+    <token>you</token>
+  </entry>
+  <entry tags="VBP">
+    <token>know</token>
+  </entry>
+  <entry tags="NN">
+    <token>reply</token>
+  </entry>
+</dictionary>
+
